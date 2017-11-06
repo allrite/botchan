@@ -1,0 +1,12 @@
+.jumbotron-fp {
+    background: url('../images/index-bg.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    height: 100vh;
+}
+
+.jumbotron-post {
+    background: url('../images/card-bg.jpg') no-repeat center center;
+}
