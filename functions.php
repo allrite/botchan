@@ -74,8 +74,8 @@
                 'after_title'   =>  '</h2>',
             ),
             array(
-                'name'          =>  'Footer 2',
-                'id'            =>  'footer-2',
+                'name'          =>  'Footer 3',
+                'id'            =>  'footer-3',
                 'before_widget' =>  '<div class="container">',
                 'after_widget'  =>  '</div>',
                 'before_title'  =>  '<h2 class="widget-title">',
