@@ -10,3 +10,7 @@
 .jumbotron-post {
     background: url('../images/card-bg.jpg') no-repeat center center;
 }
+
+.widget-heading {
+    font-size: 1.2rem;
+}
