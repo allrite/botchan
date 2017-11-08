@@ -14,6 +14,7 @@
             $this->settings = $botchan_settings;
             $this->theme_support();
             $this->setup_actions();
+            $this->setup_filters();
             $this->image_sizes();
             $this->content_width();
         }
@@ -23,6 +24,11 @@
             add_action( 'admin_init', array($this, 'admin_styles') );
             add_action( 'widgets_init', array($this, 'sidebars') );
             add_action( 'init', array($this, 'menus') );        
+        }
+
+        private function setup_filters() {
+            add_filter( 'embed_oembed_html', array($this, 'responsive_video'), 10, 4);
+            add_filter( 'get_the_archive_title', array( $this, 'archive_titles' ));
         }
 
         public function enqueue() {
@@ -82,6 +88,26 @@
                     call_user_func_array( 'register_nav_menu', $menu);
                 }
             }
+        }
+
+        public function responsive_video( $html, $url, $attr, $post_ID) {
+            $output = '<div class="embed-responsive embed-responsive-16by9">' . $html . '</div>';
+            return $output; 
+        }
+        
+        public function archive_titles() {
+            if ( is_category() ) {
+                    $title = single_cat_title( '', false );
+                } elseif ( is_tag() ) {
+                    $title = single_tag_title( '#', false );
+                } elseif ( is_author() ) {
+                    $title = 'Posts by <span class="vcard">' . get_the_author() . '</span>' ;
+                }  elseif ( is_tax() ) {
+                    $title = single_term_title( '', false );
+                } elseif ( is_post_type_archive() ) {
+                    $title = post_type_archive_title( '', false );
+                }
+            return ucfirst($title);
         }
 
     }

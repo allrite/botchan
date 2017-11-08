@@ -7,13 +7,38 @@
     Version: 0.1
 */
 
-.jumbotron-fp {
+html {
+    position: relative;
+    min-height: 100%;
+  }
+
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 150px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    min-height: 150px;
+}
+
+.jumbotron-heading {
+    /*
     background: url('../../wp-content/themes/botchan/assets/images/dogo-onsen.jpg') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
     height: 100vh;
+    */
+    color: #fff;
+}
+
+.jumbotron-heading a {
+    color: #fff;
 }
 
 .jumbotron-post {
@@ -31,4 +56,25 @@ ul.tags {
 ul.tags li {
     display: inline;
     margin-right: 1rem;
+}
+
+.footer a {
+    color: #fff;
+}
+
+.content-container {
+    margin-bottom: 250px;
+}
+
+.post-categories {
+    list-style-type: none;
+}
+
+.post-categories li {
+    display: inline;
+    margin-right: 1rem;
+}
+
+.postlist-container {
+    padding-top: 50px;
 }

@@ -8,17 +8,17 @@
 ?>
 <?php get_header(); ?>
     <div class="container content-container">
-        <?php if ( have_posts() ): ?>
-        <?php the_archive_title( '<h1>', '</h1>'); ?>
-        <?php the_archive_description( '<p class="lead">', '</p>' ); ?>
+        <h1>Search results</h1>
+        <?php get_search_form(); ?>
         <div class="postlist-container">
+            <?php if ( have_posts() ): ?>
             <?php 
                 while ( have_posts() ) : the_post();
-                    get_template_part('template-parts/post-card');
+                    get_template_part('template-parts/post-cardlist');
                 endwhile;
             ?>
             <?php else: ?>
-            <p>No posts found.</p>
+            <p>No results found.</p>
             <?php endif; ?>
         </div>
     </div>

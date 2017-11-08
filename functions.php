@@ -13,7 +13,7 @@
             array('botchan-style', get_template_directory_uri() . '/style.css'),
         ),
         'scripts'       =>  array(
-            array('bs-jquery', 'https://code.jquery.com/jquery-3.2.1.slim.min.js', array(), '3.2.1', true),
+            array('bs-jquery', 'https://code.jquery.com/jquery-3.2.1.min.js', array(), '3.2.1', true),
             array('bs-popper', 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js', array(), '1.12.3', true),
             array('bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js', array(), '4.0.0-beta.2', true),
         ),
@@ -23,7 +23,7 @@
         'theme_support' =>  array(
             array('post-thumbnails'),
             array('custom-header', array(
-                'default-image' => 'assets/images/botchan-ressha.jpg',
+                'default-image' => get_template_directory() . '/assets/images/botchan-ressha.jpg',
                 'random-default' => false,
                 'width' => 0,
                 'height' => 0,
@@ -50,12 +50,12 @@
             array('aesop-component-styles', array( "parallax", "image", "quote", "gallery", "content", "video", "audio", "collection", "chapter", "document", "character", "map", "timeline" )),
         ),
         'image_sizes'   =>  array(
-            array('botchan_card', 1149, 270, true),
+            array('botchan_card', 1108, 270, true),
             array('botchan_home_card', 318, 180, true),
-            array('botchan_home_banner', 2048, false, false),
-            array('botchan_post_heading', 1149, 270, true)
+            array('botchan_jumbotron', 2048, false, false),
+            array('botchan_post_heading', 1140, 270, true)
         ),
-        'content_width' => 1149,
+        'content_width' => 1140,
         'sidebars'      => array(
             array(
                 'name'          =>  'Footer 1',

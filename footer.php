@@ -7,7 +7,7 @@
      * @since 0.1
      */
 ?>
-    <div class="container-fluid fixed-bottom bg-dark text-white">
+    <footer class="container-fluid footer bg-dark text-white">
         <div id="footer-widgets-area" class="container">
             <div class="row">
                 <div class="col-sm">
@@ -36,7 +36,7 @@
         <div id="footer-copyright-area" class="container ">
             <p>&copy; Andrew Wright, <?php echo date('Y'); ?></p>
         </div>
-    </div>
+    </footer>
     <?php wp_footer(); ?>
   </body>
 </html>

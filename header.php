@@ -16,7 +16,15 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <a class="navbar-brand" href="#"><?php bloginfo('name'); ?></a>
+      <a class="navbar-brand" href="<?php echo home_url(); ?>">
+        <?php 
+            if (get_theme_mod( 'custom_logo' )):
+                the_custom_logo();
+            else:
+                bloginfo('name');
+            endif;
+        ?>
+      </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
