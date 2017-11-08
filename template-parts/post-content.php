@@ -22,4 +22,10 @@
                 echo get_the_tag_list('<ul class="tags">Tagged: <li>','</li><li>','</li></ul>');
             }
         ?>
+        <?php Botchan::post_navigation(); ?>
+        <?php
+            if ( comments_open() || get_comments_number() ) :
+                comments_template();
+            endif;
+        ?>
     </div>

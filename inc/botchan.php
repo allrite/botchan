@@ -51,19 +51,33 @@
                         'format' => '?paged=%#%',
                         'current' => max( 1, get_query_var('paged') ),
                         'total' => $query->max_num_pages,
-                        'prev_text'          => __('&#9668;', 'botchan'),
-                        'next_text'          => __('&#9658;', 'botchan'),
+                        'prev_text'          => __('&laquo;', 'botchan'),
+                        'next_text'          => __('&raquo;', 'botchan'),
+                        'type'  => 'array'
                     ) );
             
             if( is_array( $pages ) ) {
                 $paged = ( get_query_var('paged') == 0 ) ? 1 : get_query_var('paged');
-                echo '<nav aria-label="Page navigation example">';
-                echo '<ul class="pagination">';
+                echo '<nav aria-label="Page navigation">';
+                echo '<ul class="pagination justify-content-center">';
                 foreach ( $pages as $page ) {
                         echo '<li class="page-item">' . $page . "</li>\n";
                 }
                 echo '</ul></nav>';
             }
+        }
+
+        public function post_navigation() {
+        ?>
+            <div class="row">
+            <div class="col text-left">
+                <?php previous_post_link(); ?>
+            </div>
+            <div class="col text-right">
+                <?php next_post_link(); ?>
+             </div>
+        </div>
+        <?php
         }
 
     }

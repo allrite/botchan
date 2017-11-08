@@ -79,6 +79,27 @@ ul.tags li {
     padding-top: 50px;
 }
 
+.page-numbers {
+    position: relative;
+    display: block;
+    padding: .5rem .75rem;
+    margin-left: -1px;
+    line-height: 1.25;
+    color: #007bff;
+    background-color: #fff;
+    border: 1px solid #ddd;
+}
+
+.current {
+    z-index: 2;
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.comments-area {
+    margin-top: 50px;
+}
 .aesop-video-container iframe {
     width:100%;
     max-width:1149px;

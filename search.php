@@ -17,6 +17,7 @@
                     get_template_part('template-parts/post-cardlist');
                 endwhile;
             ?>
+            <?php Botchan::pagination(); ?>
             <?php else: ?>
             <p>No results found.</p>
             <?php endif; ?>
