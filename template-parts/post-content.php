@@ -11,7 +11,7 @@
             <h1 class="display-3 text-white"><?php the_title(); ?></h1>
             <p class="lead text-white">By <?php the_author_link(); ?> on <?php the_date(); ?></p>
             <hr class="my-4">
-            <p class="text-white">Posted in: <?php echo get_the_category_list(','); ?></p>
+            <p class="text-white">Posted in: <?php echo get_the_category_list(', '); ?></p>
         </div>
     </div>
     <div class="container content-container">
