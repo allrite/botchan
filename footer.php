@@ -34,7 +34,7 @@
             </div>
         </div>
         <div id="footer-copyright-area" class="container ">
-            <p>&copy; Andrew Wright, <?php echo date('Y'); ?></p>
+            <p>Botchan theme by Andrew Wright. Contents &copy; Andrew Wright, <?php echo date('Y'); ?></p>
         </div>
     </footer>
     <?php wp_footer(); ?>
