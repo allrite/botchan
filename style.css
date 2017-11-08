@@ -79,14 +79,9 @@ ul.tags li {
     padding-top: 50px;
 }
 
-iframe .aesop-content {
+.aesop-video-container iframe {
     width:100%;
     max-width:1149px;
-    margin:0 auto;
-}
-
-iframe {
-    width:100%;
-    max-width:1149px;
+    height: 646px;
     margin:0 auto;
 }
