@@ -23,12 +23,12 @@
         'theme_support' =>  array(
             array('post-thumbnails'),
             array('custom-header', array(
-                'default-image' => get_template_directory() . '/assets/images/botchan-ressha.jpg',
+                'default-image' => get_template_directory_uri() . '/assets/images/botchan-ressha.jpg',
                 'random-default' => false,
-                'width' => 0,
-                'height' => 0,
-                'flex-height' => false,
-                'flex-width' => false,
+                'width' => 2048,
+                'height' => 1361,
+                'flex-height' => true,
+                'flex-width' => true,
                 'default-text-color' => '',
                 'header-text' => true,
                 'uploads' => true,
@@ -52,7 +52,7 @@
         'image_sizes'   =>  array(
             array('botchan_card', 1108, 270, true),
             array('botchan_home_card', 318, 180, true),
-            array('botchan_jumbotron', 2048, false, false),
+            array('botchan_jumbotron', 2048, 1361, false),
             array('botchan_post_heading', 1140, 270, true)
         ),
         'content_width' => 1140,
