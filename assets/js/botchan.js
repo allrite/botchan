@@ -5,4 +5,8 @@
  * @since 0.2
  */
 
-$( ".aesop-image-component-image" ).find("img").addClass( "img-fluid" );
+var aesopimg = $( ".aesop-image-component-image" ).find("img");
+
+ aesopimg.addClass( "img-fluid" );
+ aesopimg.removeAttr( "width" );
+ aesopimg.removeAttr( "height" );
