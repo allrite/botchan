@@ -142,3 +142,7 @@ ul.tags li {
     height: 646px;
     margin:0 auto;
 }
+
+.aesop-toggle-chapter-menu {
+    display: none;
+}

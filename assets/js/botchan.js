@@ -5,7 +5,7 @@
  * @since 0.2
  */
 
-$( ".aesop-toggle-chapter-menu" ).remove();
+//$( "a" ).remove(".aesop-toggle-chapter-menu");
 var aesopimg = $( ".aesop-image-component-image" ).find("img");
 
  aesopimg.addClass( "img-fluid" );
