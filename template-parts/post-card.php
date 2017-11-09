@@ -8,7 +8,7 @@
 ?>
     <a href="<?php the_permalink(); ?>" class="text-dark">
     <div class="card mb-3">
-        <?php the_post_thumbnail( 'botchan_card', 'class="card-img-top"'); ?>
+        <img src="<?php echo the_post_thumbnail_url( 'botchan_card' ); ?>" class="card-img-top" alt="">
         <div class="card-body">
             <h4 class="card-title"><?php the_title(); ?></h4>
             <p class="card-text"><?php the_excerpt(); ?></p>
