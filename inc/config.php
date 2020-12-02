@@ -23,7 +23,8 @@
             add_action( 'wp_enqueue_scripts', array($this, 'enqueue') );
             add_action( 'admin_init', array($this, 'admin_styles') );
             add_action( 'widgets_init', array($this, 'sidebars') );
-            add_action( 'init', array($this, 'menus') );        
+            add_action( 'init', array($this, 'menus') );  
+            add_action( 'after_setup_theme', array( $this, 'register_navwalker' ) );      
         }
 
         private function setup_filters() {
@@ -110,6 +111,9 @@
             return ucfirst($title);
         }
 
+        public function register_navwalker(){
+            require_once get_template_directory() . '/inc/class-wp-bootstrap-navwalker.php';
+        }
     }
     
 ?>

@@ -6,11 +6,11 @@
      * @since 0.1
      */
 
-    $botchan = new Botchan();
+  global $botchan;  
 ?><!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" <?php language_attributes(); ?>>
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">  
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">  
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 	<?php wp_head(); ?>
 </head>

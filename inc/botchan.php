@@ -6,13 +6,16 @@
      * @since 0.1
      */
 
-    // Nav walker for Bootstrap
+    /**
+     * Nav walker for Bootstrap
+     * Deprecated in favour of https://github.com/wp-bootstrap/wp-bootstrap-navwalker
+     */ 
 
     class Botchan_Menu_Walker extends Walker_Nav_Menu {
         public function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {		
-            $active = in_array("current_page_item",$item->classes) ? ' active' : '';	
-			$indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
-			$output .= $indent . '<li class="nav-item' . $active . '">';
+            $active = in_array("current_page_item",$item->classes) ? ' active' : '';
+            $indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';	
+            $output .= $indent . '<li class="nav-item' . $active . '">';
             $output .= "<a class=\"nav-link\" href=\"" . $item->url . "\">"  .$icon_string . esc_attr($item->title);
             if ( $active ) {
                 $output .= ' <span class="sr-only">(current)</span>';
@@ -20,7 +23,6 @@
             $output .= "</a>\n";
 		}
     }
-
     class Botchan {
         public function __construct() {
             
@@ -28,12 +30,14 @@
 
         public function primary_menu() {
             $defaults =   array(
-                'menu'              =>  'primary',
-                'theme_location'    =>  'primary',
-                'depth'             =>  1,
-                'menu_class'        =>  'navbar-nav mr-auto',
-                'container'         =>  false,
-                'walker'            =>  new Botchan_Menu_Walker()
+                'theme_location'  => 'primary',
+                'depth'           => 2, // 1 = no dropdowns, 2 = with dropdowns.
+                'container'       => 'div',
+                'container_class' => 'collapse navbar-collapse',
+                'container_id'    => 'bs-example-navbar-collapse-1',
+                'menu_class'      => 'navbar-nav mr-auto',
+                'fallback_cb'     => 'WP_Bootstrap_Navwalker::fallback',
+                'walker'          => new WP_Bootstrap_Navwalker(),
             );
             wp_nav_menu($defaults);
         }
@@ -78,6 +82,12 @@
              </div>
         </div>
         <?php
+        }
+
+        public function breadcrumbs() {
+            if ( function_exists('yoast_breadcrumb') ) {
+                yoast_breadcrumb( '<p id="breadcrumbs">','</p>' );
+            }
         }
 
     }

@@ -9,17 +9,16 @@
     // Card Image size 1149x270
     $botchan_settings = array(
         'styles'        =>  array(
-            array('bootstrap4', 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css'),
+            array('bootstrap4', 'https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css'),
             array('botchan-style', get_template_directory_uri() . '/style.css'),
         ),
         'scripts'       =>  array(
-            array('bs-jquery', 'https://code.jquery.com/jquery-3.2.1.min.js', array(), '3.2.1', true),
-            array('bs-popper', 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js', array(), '1.12.3', true),
-            array('bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js', array(), '4.0.0-beta.2', true),
-            array('botchan-script', get_template_directory_uri() . '/assets/js/botchan.js', array('jquery'), false, true),
+            array('bs-jquery', 'https://code.jquery.com/jquery-3.5.1.slim.min.js', array('jquery'), '3.5.1', true),
+            array('bootstrap', 'https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js', array('jquery'), '4.5.3', true),
+            // array('botchan-script', get_template_directory_uri() . '/assets/js/botchan.js', array('jquery'), false, true),
         ),
         'admin_styles' =>  array(
-            array('https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css')
+            array('https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css')
         ),
         'theme_support' =>  array(
             array('post-thumbnails'),
@@ -93,6 +92,7 @@
     require_once('inc/config.php');
     $botchan_config = new Botchan_Config($botchan_settings);
     require_once('inc/botchan.php');
+    $botchan = new Botchan();
 
      
     

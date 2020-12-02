@@ -5,6 +5,8 @@
      * @package botchan
      * @since 0.1
      */
+    
+    global $botchan;
 ?>
 <?php get_header(); ?>
     <div class="container content-container">

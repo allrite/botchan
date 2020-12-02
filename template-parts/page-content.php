@@ -3,7 +3,7 @@
      * Botchan theme post template part
      *
      * @package botchan
-     * @since 0.1
+     * @since 0.38
      */
     
     global $botchan;
@@ -13,17 +13,11 @@
             <h1 class="display-3 text-white"><?php the_title(); ?></h1>
             <p class="lead text-white">By <?php the_author_link(); ?> on <?php the_date(); ?></p>
             <hr class="my-4">
-            <p class="text-white">Posted in: <?php echo get_the_category_list(', '); ?></p>
         </div>
     </div>
     <div class="container content-container">
         <?php the_content(); ?>
         <hr class="my-4">
-        <?php
-            if(get_the_tag_list()) {
-                echo get_the_tag_list('<ul class="tags">Tagged: <li>','</li><li>','</li></ul>');
-            }
-        ?>
         <?php $botchan->post_navigation(); ?>
         <?php $botchan->breadcrumbs(); ?>
         <?php
