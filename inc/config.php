@@ -20,6 +20,7 @@
         }
 
         private function setup_actions() {
+            add_action( 'customize_register', array( $this, 'customizer' ) );
             add_action( 'wp_enqueue_scripts', array($this, 'enqueue') );
             add_action( 'admin_init', array($this, 'admin_styles') );
             add_action( 'widgets_init', array($this, 'sidebars') );
@@ -91,25 +92,64 @@
             }
         }
 
+        public function customizer( $wp_customize ) {
+			if (isset($this->settings['customizer'])) {
+				foreach ($this->settings['customizer'] as $setting => $customize) {
+					if (isset($customize['remove_control'])) {
+						$wp_customize->remove_control( $setting );
+					}
+					if(!$customize['remove_control']){
+						if (isset($customize['add_panel'])) {
+							$wp_customize->add_panel($setting, $customize['add_panel']);
+						}
+						if (isset($customize['add_section'])) {
+							$wp_customize->add_section($setting, $customize['add_section']);
+						}
+						if (isset($customize['add_setting'])) {
+							$wp_customize->add_setting($setting, $customize['add_setting']);
+						}
+						if (isset($customize['add_control'])) {
+							if (isset($customize['add_control']['control'])) {
+								$wp_customize->add_control(new $customize['add_control']['control']($wp_customize, $setting, $customize['add_control']['args']));
+							} else {
+								$wp_customize->add_control($setting, $customize['add_control']);
+							}
+						}
+					}
+				}
+			}
+			
+		}
+
         public function responsive_video( $html, $url, $attr, $post_ID) {
             $output = '<div class="embed-responsive embed-responsive-16by9">' . $html . '</div>';
             return $output; 
         }
         
         public function archive_titles() {
-            if ( is_category() ) {
-                    $title = single_cat_title( '', false );
-                } elseif ( is_tag() ) {
-                    $title = single_tag_title( '#', false );
-                } elseif ( is_author() ) {
-                    $title = 'Posts by <span class="vcard">' . get_the_author() . '</span>' ;
-                }  elseif ( is_tax() ) {
-                    $title = single_term_title( '', false );
-                } elseif ( is_post_type_archive() ) {
-                    $title = post_type_archive_title( '', false );
-                }
-            return ucfirst($title);
-        }
+			if ( is_category() ) {
+				$title = single_cat_title( '', false );
+			} elseif ( is_tag() ) {
+				$title = single_tag_title( '#', false );
+			} elseif ( is_author() ) {
+				$title = 'Posts by <span class="vcard">' . get_the_author() . '</span>' ;
+			} elseif ( is_year() ) {
+				$title = get_the_date( _x( 'Y', 'yearly archives date format' ) );
+			} elseif ( is_month() ) {
+				$title = get_the_date( _x( 'F Y', 'monthly archives date format' ) );
+			} elseif ( is_day() ) {
+				$title = get_the_date( _x( 'F j, Y', 'daily archives date format' ) );
+			}  elseif ( is_tax() ) {
+				$title = single_term_title( '', false );
+			} elseif  ( get_query_var('show_more_title', '' ) ) { // Post grid archive page
+				$title = get_query_var('show_more_title', '' ); 
+			} elseif ( is_post_type_archive() ) {
+				$title = post_type_archive_title( '', false );
+			} else {
+				$title = __('Posts', 'botchan');
+			}
+			return ucfirst($title);
+		}
 
         public function register_navwalker(){
             require_once get_template_directory() . '/inc/class-wp-bootstrap-navwalker.php';

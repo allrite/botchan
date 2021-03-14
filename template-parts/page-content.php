@@ -16,10 +16,9 @@
         </div>
     </div>
     <div class="container content-container">
+        <?php $botchan->breadcrumbs(); ?>
         <?php the_content(); ?>
         <hr class="my-4">
-        <?php $botchan->post_navigation(); ?>
-        <?php $botchan->breadcrumbs(); ?>
         <?php
             if ( comments_open() || get_comments_number() ) :
                 comments_template();

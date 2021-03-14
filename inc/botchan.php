@@ -90,5 +90,15 @@
             }
         }
 
+        public function footer_text( $tags = false ) {
+			$copyright = get_theme_mod('footer_text');
+			if ($copyright) {
+				$copyright = str_replace(array( '#year#', '#name#' ), array( date('Y'), get_bloginfo('name') ), $copyright );
+			} else {
+				$copyright = '© Copyright ' . get_bloginfo('name') . ' ' . date('Y');
+			}
+			echo $copyright; // Sets tags to true if any html is used in the copyright.
+		}
+
     }
 ?>

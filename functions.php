@@ -60,7 +60,7 @@
             array(
                 'name'          =>  'Footer 1',
                 'id'            =>  'footer-1',
-                'before_widget' =>  '<div class="container">',
+                'before_widget' =>  '<div class="container footer-widget">',
                 'after_widget'  =>  '</div>',
                 'before_title'  =>  '<h2 class="widget-title">',
                 'after_title'   =>  '</h2>',
@@ -68,7 +68,7 @@
             array(
                 'name'          =>  'Footer 2',
                 'id'            =>  'footer-2',
-                'before_widget' =>  '<div class="container">',
+                'before_widget' =>  '<div class="container footer-widget">',
                 'after_widget'  =>  '</div>',
                 'before_title'  =>  '<h2 class="widget-title">',
                 'after_title'   =>  '</h2>',
@@ -76,7 +76,7 @@
             array(
                 'name'          =>  'Footer 3',
                 'id'            =>  'footer-3',
-                'before_widget' =>  '<div class="container">',
+                'before_widget' =>  '<div class="container footer-widget">',
                 'after_widget'  =>  '</div>',
                 'before_title'  =>  '<h2 class="widget-title">',
                 'after_title'   =>  '</h2>',
@@ -87,6 +87,34 @@
                 'location'      =>  'primary',
                 'description'   =>  __( 'Primary Menu', 'botchan'),            
             )
+        ),
+        'customizer' =>	array(
+
+            // Remove Customizer Controls
+            'header_textcolor' => array(
+                'remove_control'    => true
+            ),
+            'footer' => array(
+                'add_section'   =>  array(
+                    'title'         => __('Footer','botchan'),
+                    'capability'    => 'edit_theme_options',
+                    'priority'      => 90,
+                )
+            ),
+            'footer_text' => array(
+                'add_setting'   =>  array(
+                    'type'          => 'theme_mod',
+                    'capability'    => 'edit_theme_options',
+                    'default'       => '&copy; #year# #name#',
+                ),
+                'add_control'   =>  array(
+                    'label'         => __( 'Footer copyright text', 'botchan' ),
+                    'description'   =>  __('Use #year# to insert the current year, #name# for the site title.', 'botchan'),
+                    'type'          => 'text',
+                    'priority'      => 20,
+                    'section'       => 'footer',
+                ),
+            ),
         ),
     );
     require_once('inc/config.php');

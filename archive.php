@@ -5,6 +5,8 @@
      * @package botchan
      * @since 0.1
      */
+
+     global $botchan;
 ?>
 <?php get_header(); ?>
     <div class="container content-container">
@@ -17,7 +19,7 @@
                     get_template_part('template-parts/post-card');
                 endwhile;
             ?>
-            <?php Botchan::pagination(); ?>
+            <?php $botchan->pagination(); ?>
             <?php else: ?>
             <p>No posts found.</p>
             <?php endif; ?>

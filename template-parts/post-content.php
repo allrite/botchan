@@ -16,8 +16,11 @@
             <p class="text-white">Posted in: <?php echo get_the_category_list(', '); ?></p>
         </div>
     </div>
-    <div class="container content-container">
+    <div class="container"><?php $botchan->breadcrumbs(); ?></div>
+    <div class="container-fluid content-container post-content"> 
         <?php the_content(); ?>
+    </div>
+    <div class="container">
         <hr class="my-4">
         <?php
             if(get_the_tag_list()) {
@@ -25,7 +28,6 @@
             }
         ?>
         <?php $botchan->post_navigation(); ?>
-        <?php $botchan->breadcrumbs(); ?>
         <?php
             if ( comments_open() || get_comments_number() ) :
                 comments_template();

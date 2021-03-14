@@ -6,6 +6,8 @@
      * @package botchan
      * @since 0.1
      */
+
+     global $botchan;
 ?>
     <div id="footer-widgets-area" class="container-fluid bg-dark text-white">
         <div class="row">
@@ -34,7 +36,7 @@
     </div>
     <footer class="container-fluid footer bg-dark text-white">
         <div id="footer-copyright-area" class="container ">
-            <p>Botchan theme and contents &copy; Andrew Wright, <?php echo date('Y'); ?></p>
+            <p><?php echo $botchan->footer_text(); ?></p>
         </div>
     </footer>
     <?php wp_footer(); ?>
