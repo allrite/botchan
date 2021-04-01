@@ -4,7 +4,7 @@
     Author: Andrew Wright
     Author URI: http://allrite.net
     Description: A story telling theme using the Aesop Story Engine and Bootstrap 4.
-    Version: 0.39.8
+    Version: 0.39.9
     GitHub Theme URI: https://github.com/allrite/botchan
 */
 
@@ -190,4 +190,10 @@ ul.tags li {
     margin-right: auto;
     padding-left: 15px;
     padding-right: 15px;
+}
+
+.tiled-gallery .gallery-row {
+    max-width: 1140px;
+    margin-left: auto;
+    margin-right: auto;
 }
